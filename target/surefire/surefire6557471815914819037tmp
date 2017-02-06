@@ -1,0 +1,23 @@
+#surefire
+#Mon Feb 06 17:24:33 EST 2017
+testClassesDirectory=/Users/stephen/IdeaProjects/conway-kata/target/test-classes
+forkMode=once
+classPathUrl.2=/Users/stephen/.m2/repository/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1.jar
+useManifestOnlyJar=true
+classPathUrl.1=/Users/stephen/IdeaProjects/conway-kata/target/classes
+classPathUrl.0=/Users/stephen/IdeaProjects/conway-kata/target/test-classes
+reportsDirectory=/Users/stephen/IdeaProjects/conway-kata/target/surefire-reports
+providerConfiguration=org.apache.maven.surefire.junit.JUnit3Provider
+testSuiteDefinitionTestSourceDirectory=/Users/stephen/IdeaProjects/conway-kata/src/test/java
+surefireClassPathUrl.1=/Users/stephen/.m2/repository/org/apache/maven/surefire/surefire-api/2.10/surefire-api-2.10.jar
+surefireClassPathUrl.0=/Users/stephen/.m2/repository/org/apache/maven/surefire/surefire-junit3/2.10/surefire-junit3-2.10.jar
+runOrder=filesystem
+useSystemClassLoader=true
+excludes0=**/*$*
+isTrimStackTrace=true
+enableAssertions=true
+includes2=**/*TestCase.java
+failIfNoTests=false
+includes1=**/*Test.java
+includes0=**/Test*.java
+childDelegation=false
