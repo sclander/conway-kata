@@ -17,8 +17,6 @@ public class ConwayServlet extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("inside do POST");
-
         try(BufferedReader reader = request.getReader()) {
             StringBuilder sb = new StringBuilder();
             String line;
@@ -27,25 +25,36 @@ public class ConwayServlet extends HttpServlet {
                 sb.append(line);
             }
 
-            GridData current = mapData(sb.toString());
+            GridData current = jsonToGridData(sb.toString());
             GridData next = nextRound(current);
 
-            System.out.println(next.getRows());
-
+            response.setContentType("application/json");
+            PrintWriter out = response.getWriter();
+            out.print(gridDataToJson(next));
+            out.flush();
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        System.out.println("over");
     }
 
-    private GridData mapData(String data) {
+    private GridData jsonToGridData(String data) {
         try {
             ObjectMapper mapper = new ObjectMapper();
             return mapper.readValue(data, GridData.class);
         } catch (Exception e) {
             e.printStackTrace();
             return new GridData();
+        }
+    }
+
+    private String gridDataToJson(GridData data) {
+
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            return mapper.writeValueAsString(data);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return e.getMessage();
         }
     }
 
@@ -86,7 +95,7 @@ public class ConwayServlet extends HttpServlet {
         if (livingNeighbors == 2 && current.getCellValue(row, col) || livingNeighbors == 3) {
             isAlive = true;
         }
-        
+
         return isAlive;
     }
 }

@@ -27,11 +27,10 @@ app.controller('ConwayCtrl', function($scope, $http) {
                 'Content-Type': 'application/json'
             }
         }).success(function(data) {
-            console.log('success',data);
+            $scope.rows = data.rows;
         }).error(function(data) {
-            console.log('fuck',data);
+            console.log('error',data);
         });
-        console.log("POST done");
     }
 
 });
