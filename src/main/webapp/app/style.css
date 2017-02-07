@@ -30,6 +30,7 @@ h1, .btn {
     background-color: #ddd;
     border: 2px solid #aaa;
     border-radius: 5px;
+    cursor: pointer;
     margin: 20px auto;
     padding: 10px 20px;
     transition: all .2s;

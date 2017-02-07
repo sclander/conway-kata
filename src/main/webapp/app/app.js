@@ -1,6 +1,6 @@
 var app = angular.module('app', []);
 
-app.controller('ConwayCtrl', function($scope) {
+app.controller('ConwayCtrl', function($scope, $http) {
     var numRows = 6;
     var numCols = 8;
 
@@ -15,7 +15,23 @@ app.controller('ConwayCtrl', function($scope) {
     }
 
     $scope.nextRound = function() {
-        console.log('data', $scope.rows);
+        $http({
+            method : 'POST',
+            url : 'conway',
+            data : {
+                rows: $scope.rows,
+                numRows: numRows,
+                numCols: numCols
+            },
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).success(function(data) {
+            console.log('success',data);
+        }).error(function(data) {
+            console.log('fuck',data);
+        });
+        console.log("POST done");
     }
 
 });
