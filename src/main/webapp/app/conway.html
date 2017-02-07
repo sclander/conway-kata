@@ -2,9 +2,21 @@
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
         <script src="app/app.js"></script>
+        <link rel="stylesheet" type="text/css" href="app/style.css"/>
     </head>
     <body ng-controller="ConwayCtrl">
-        <h1>Hello World</h1>
-        <p>{{message}}</p>
+        <h1>Conway's Game of Life</h1>
+        <div id="grid">
+            <div class="row" ng-repeat="row in rows track by $index">
+                <div class="cell"
+                     ng-repeat="cell in row track by $index"
+                     ng-class="{'alive': cell}"
+                     ng-click="setCell(!cell, $index, $parent.$index)">
+                </div>
+            </div>
+        </div>
+        <div class="btn" ng-click="nextRound()">
+            Go
+        </div>
     </body>
 </html>
