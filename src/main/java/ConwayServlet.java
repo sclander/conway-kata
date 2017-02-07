@@ -9,7 +9,7 @@ public class ConwayServlet extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher view = request.getRequestDispatcher("conway.html");
+        RequestDispatcher view = request.getRequestDispatcher("app/conway.html");
         view.forward(request, response);
     }
 
