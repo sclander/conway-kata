@@ -26,9 +26,17 @@ h1, .btn {
     background-color: #3af;
 }
 
-#buttons {
+#buttons, #grid-controls {
     margin: 0 auto;
     width: 416px;
+}
+
+#grid-controls {
+    height: 70px;
+}
+
+.number {
+    width: 50px;
 }
 
 .btn {
@@ -47,10 +55,10 @@ h1, .btn {
     border: 2px solid #bbb;
 }
 
-#btn-next {
-    float: left;
+#btn-start, #btn-stop, #btn-grid {
+    float: right;
 }
 
-#btn-start, #btn-stop {
-    float: right;
+#btn-grid {
+    margin: 0;
 }

@@ -6,6 +6,13 @@
     </head>
     <body ng-controller="ConwayCtrl">
         <h1>Conway's Game of Life</h1>
+        <div id="grid-controls">
+            <label>Rows:</label>
+            <input type="number" class="number" ng-model="displayNumRows"/>
+            <label>Columns:</label>
+            <input type="number" class="number" ng-model="displayNumCols"/>
+            <div id="btn-grid" class="btn" ng-click="initGrid(displayNumRows, displayNumCols)">New Grid</div>
+        </div>
         <div id="grid">
             <div class="row" ng-repeat="row in rows track by $index">
                 <div class="cell"
