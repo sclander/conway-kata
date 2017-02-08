@@ -20,7 +20,7 @@ instructions I have provided.
 
 ## Running The Project
 1. Once installed, start the Java servlet with the tomcat7 plugin you just installed with `mvn tomcat7:run`
-2. Open your browser and navigate to [http://localhost:9090/conway] you should see a 6x8 grid with several controls around it.
+2. Open your browser and navigate to http://localhost:9090/conway you should see a 6x8 grid with several controls around it.
   * NOTE: If for some reason you cannot use port 9090, you can change this by replacing the number in `<port>9090</port>` of the tomcat plugin's configuration. You can find this in pom.xml
   
 ## Using The Interface
