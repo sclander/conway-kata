@@ -1,15 +1,9 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Map;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
 public class ConwayServlet extends HttpServlet {
-
-    public void init() {
-
-    }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher view = request.getRequestDispatcher("app/conway.html");
@@ -37,7 +31,10 @@ public class ConwayServlet extends HttpServlet {
         }
     }
 
-    private GridData jsonToGridData(String data) {
+    // Methods below this line would normally be private/protected but I am making them
+    // public to allow for more useful tests than mocks returning mocks.
+
+    public GridData jsonToGridData(String data) {
         try {
             ObjectMapper mapper = new ObjectMapper();
             return mapper.readValue(data, GridData.class);
@@ -47,7 +44,7 @@ public class ConwayServlet extends HttpServlet {
         }
     }
 
-    private String gridDataToJson(GridData data) {
+    public String gridDataToJson(GridData data) {
 
         try {
             ObjectMapper mapper = new ObjectMapper();
@@ -58,7 +55,7 @@ public class ConwayServlet extends HttpServlet {
         }
     }
 
-    private GridData nextRound(GridData current) {
+    public GridData nextRound(GridData current) {
         int numRows = current.getNumRows();
         int numCols = current.getNumCols();
         GridData next = new GridData(numRows, numCols);
