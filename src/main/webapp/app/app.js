@@ -1,8 +1,10 @@
 var app = angular.module('app', []);
 
-app.controller('ConwayCtrl', function($scope, $http) {
+app.controller('ConwayCtrl', function($scope, $http, $interval) {
     var numRows = 6;
     var numCols = 8;
+    var animationPromise;
+    $scope.animating = false;
 
     // initialize new grid
     var emptyRow = new Array(numCols).fill(false);
@@ -35,4 +37,15 @@ app.controller('ConwayCtrl', function($scope, $http) {
         });
     }
 
+    $scope.startAnimation = function() {
+        animationPromise = $interval(function() {
+            $scope.nextRound();
+            $scope.animating = true;
+        }, 500);
+    }
+
+    $scope.stopAnimation = function() {
+        $interval.cancel(animationPromise);
+        $scope.animating = false;
+    }
 });

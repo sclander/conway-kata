@@ -15,8 +15,16 @@
                 </div>
             </div>
         </div>
-        <div class="btn" ng-click="nextRound()">
-            Go
+        <div id="buttons">
+            <div id="btn-next" class="btn" ng-click="nextRound()">
+                Next
+            </div>
+            <div id="btn-start" class="btn" ng-click="startAnimation()" ng-hide="animating">
+                Start Animation
+            </div>
+            <div id="btn-stop" class="btn" ng-click="stopAnimation()" ng-show="animating">
+                Stop Animation
+            </div>
         </div>
     </body>
 </html>
